@@ -1,0 +1,15 @@
+To address the lack of `:focus-visible` support, we can use a JavaScript polyfill or a more inclusive CSS approach.  Here's a CSS-only solution that uses the `:focus` pseudo-class with additional styles to handle the difference:
+
+```css
+/* bugSolution.css */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #007bff; /* Default focus style */
+}
+
+button:focus:not(:focus-visible) {
+  box-shadow: none; /* Remove focus style if not actively focused */
+}
+```
+
+This approach provides a fallback for browsers that don't support `:focus-visible`.  Note that this solution might not handle all edge cases as effectively as a polyfill, but it often provides a reasonable compromise.
